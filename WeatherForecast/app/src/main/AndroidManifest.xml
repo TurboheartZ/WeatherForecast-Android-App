@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zhangxy.weatherforecast">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+<application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+    android:name="android.support.multidex.MultiDexApplication">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DisplayAboutActivity"
+            android:label="@string/title_activity_display_about"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zhangxy.weatherforecast.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ResultActivity"
+            android:label="@string/title_activity_result"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zhangxy.weatherforecast.MainActivity" />
+        </activity>
+        <activity
+            android:name=".DetailsActivity"
+            android:label="@string/title_activity_details"
+            android:parentActivityName=".ResultActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zhangxy.weatherforecast.ResultActivity" />
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <!--<meta-data-->
+            <!--android:name="com.google.android.maps.v2.API_KEY"-->
+            <!--android:value="AIzaSyBRKJ5zs7J_ahVjzJW_VMBi1YSPnuhV43g" />-->
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBRKJ5zs7J_ahVjzJW_VMBi1YSPnuhV43g"/>
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider1728900537333393"
+            android:exported="true" />
+
+        <activity
+            android:name=".MapActivity"
+            android:label="@string/title_activity_map"
+            android:parentActivityName=".ResultActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zhangxy.weatherforecast.ResultActivity" />
+        </activity>
+    </application>
+
+    <!-- Internet is required to make calls to the Aeris API -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Aeris Library uses the network state to determine if network is availabe to make calls  -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Google maps requries this now with tiles -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- (Optional If you want location services to be used as well) -->
+    <uses-permission android:name="android.permission.ACCESS_COURSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+</manifest>
